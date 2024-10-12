@@ -13,7 +13,7 @@ router = APIRouter()
 # CLOCK-IN CRUD Operations
 # --------------------------------------
 
-@router.post("/", response_model=ClockInResponse)
+@router.post("", response_model=ClockInResponse)
 async def create_clockin(clockin: ClockInModel):
     clockin_data = clockin.dict()
     clockin_data["insert_datetime"] = datetime.utcnow()  # Insert current datetime for clock-in

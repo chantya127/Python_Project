@@ -16,10 +16,10 @@ router = APIRouter()
 # ITEM CRUD Operations
 # --------------------------------------
 
-@router.post("/", response_model=ItemResponse)
+@router.post("", response_model=ItemResponse)
 async def create_item(item: ItemModel):
     item_data = item.dict()
-    item_data["insert_date"] = datetime.utcnow()  # Set current date as datetime
+    item_data["insert_date"] = datetime.now()  # Set current date as datetime
 
     # Ensure expiry_date is in datetime format (it's already defined as datetime in the model)
     item_data["expiry_date"] = item_data["expiry_date"].astimezone()
